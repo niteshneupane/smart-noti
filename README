@@ -1,0 +1,89 @@
+
+#Create Virtual Env
+
+python3 -m venv venv
+
+# activate
+source venv/bin/activate
+
+# migrate server
+python manage.py makemigrations
+python manage.py migrate
+
+# create superuser
+python manage.py createsuperuser
+admin@admin.com
+password
+
+# register user [POST]
+/api/user/register/
+
+{
+  'first_name': 'nitesh',
+  'last_name': 'test',
+  'email': 'test@gg.gg',
+  'password': 'password',
+  'password2': 'password'
+}
+
+# login user [POST]
+/api/user/login/
+{
+  'username': 'testnpne@gmail.com',
+  'password': 'password'
+}
+
+# notification list history [GET]
+/api/notifications/history/
+
+# notification list unread notifications [GET]
+/api/notifications/unread/
+
+# notification read notifications [POST]
+/api/notifications/read/
+
+{
+    "id":1
+}
+
+
+# notification set prefrences [POST]
+    "/api/notifications/preferences/"
+
+    #data
+    {
+        "comment":["in_app","sms","email"],
+        "unauthorized_login":["in_app","sms"],
+        "summary":["in_app","sms","email"]
+    }
+
+    #header:
+    Content-Type:application/json
+
+
+# notification list prefrences [GET]
+/api/notifications/preferences/
+
+# notification trigger [POST]
+/api/notifications/trigger/
+
+{
+  'event_type': 'summary',
+  'payload': '123'
+}
+
+
+
+## Postman is added inside postman folder 
+## import it and use it , Auth, Notification Collections
+## Environment as environment
+
+
+
+
+
+
+
+
+
+

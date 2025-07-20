@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "7ea30eec-8070-45ef-81a3-b1a2bca299f1",
+		"name": "Notification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16021530",
+		"_collection_link": "https://www.postman.com/smart-noti/workspace/smart-notifications/collection/16021530-7ea30eec-8070-45ef-81a3-b1a2bca299f1?action=share&source=collection_link&creator=16021530"
+	},
+	"item": [
+		{
+			"name": "history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/notifications/history/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"history",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list unread",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/notifications/unread/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"unread",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/notifications/read/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"read",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Preferences",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\":[\"in_app\",\"sms\",\"email\"],\n    \"unauthorized_login\":[\"in_app\",\"sms\"],\n    \"summary\":[\"in_app\",\"sms\",\"email\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/notifications/preferences/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"preferences",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Preferences",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/notifications/preferences/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"preferences",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "event_type",
+							"value": "summary",
+							"description": "comment,login,unrecog_login,summary",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/notifications/trigger/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"trigger",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

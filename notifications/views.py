@@ -26,7 +26,8 @@ class ReadNotifications(APIView):
             noti =  Notification.objects.get(id=serializer.validated_data['id'], user=request.user)
             print(noti)
             if not noti.is_read:
-                noti.update(is_read=True)
+                noti.is_read = True
+                noti.save()
                 return Response({"message": "marked as read"})
             return Response({"message": "Notification has already been read"})
         except Notification.DoesNotExist:
